@@ -26,6 +26,7 @@ void insertAtTail(int data, Node *&tail)
     tail = temp;
 }
 
+// inserting a new node in the linkd list at the previous position of existing node
 void insertAtHead(int data, Node *&head)
 {
     Node *temp = new Node(data);
@@ -106,14 +107,24 @@ int main()
     Node *head = node1;
     Node *tail = node1;
 
+    insertAtHead(8, head);
+    insertAtHead(6, head);
+    cout << "Insertion at head"<<endl;
+    print(head);
+    cout << endl;
+
     insertAtTail(12, tail);
     insertAtTail(14, tail);
+    cout << "Insertion at tail" << endl;
+    print(head);
 
     insertAtPosition(2, 27, head, tail);
+    cout<<endl << "Insertion at position"<<endl;
     print(head);
 
     deleteNode(3, head);
-    cout << endl;
+    cout << endl<< "Deletion"<<endl;
+
     print(head);
     return 0;
 }
