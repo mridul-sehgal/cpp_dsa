@@ -1,3 +1,4 @@
+// #include <bits/stdc++.h> 
 
 // void solve(stack<int>& myStack, int x)
 // {
@@ -15,15 +16,9 @@
 
 // }
 
-// void reverseStack(stack<int> &stack) {
-//     if(stack.empty())
-//     {
-//         return;
-//     }
-    
-//     int num=stack.top();
-//     stack.pop();
 
-//     reverseStack(stack);
-//     solve(stack,num);
+// stack<int> pushAtBottom(stack<int>& myStack, int x) 
+// {
+//     solve(myStack,x);
+//     return myStack;
 // }
