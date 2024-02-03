@@ -44,8 +44,8 @@
 //         {
 //             return -1;
 //         }
-// int ans=arr[front];
-// arr[front]=-1;
+//         int ans=arr[front];
+//         arr[front]=-1;
 //         if(front==rear){
 
 //             front=rear=-1;
