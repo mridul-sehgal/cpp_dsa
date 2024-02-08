@@ -35,7 +35,7 @@ node *buildTree(node *root)
     return root;
 }
 
-void levelOrderReversal(node *root)
+void levelOrderTraversal(node *root)
 {
     queue<node *> q;
     q.push(root);
@@ -71,11 +71,58 @@ void levelOrderReversal(node *root)
     }
 }
 
+void inOrder(node* root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+
+    inOrder(root->left);
+    cout<<root->data<<" ";
+    inOrder(root->right);
+}
+
+void preOrder(node* root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+
+    cout<<root->data<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+void postOrder(node* root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+
+    postOrder(root->left);
+    postOrder(root->right);
+    cout<<root->data<<" ";
+}
+
 int main()
 {
     node *root = NULL;
     root = buildTree(root);
+    cout<<endl<<endl;
     cout << "Print the level order traversal output : "<<endl;
-    levelOrderReversal(root);
+    levelOrderTraversal(root);
+
+    cout << "\nPrint the Inorder traversal output : "<<endl;
+    inOrder(root);
+
+    cout << "\nPrint the Preorder traversal output : "<<endl;
+    preOrder(root);
+
+    cout << "\nPrint the Posttraversal output : "<<endl;
+    postOrder(root);
+
     return 0;
 }
