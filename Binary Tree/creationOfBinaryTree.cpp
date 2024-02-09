@@ -71,57 +71,95 @@ void levelOrderTraversal(node *root)
     }
 }
 
-void inOrder(node* root)
+void inOrder(node *root)
 {
-    if(root==NULL)
+    if (root == NULL)
     {
         return;
     }
 
     inOrder(root->left);
-    cout<<root->data<<" ";
+    cout << root->data << " ";
     inOrder(root->right);
 }
 
-void preOrder(node* root)
+void preOrder(node *root)
 {
-    if(root==NULL)
+    if (root == NULL)
     {
         return;
     }
 
-    cout<<root->data<<" ";
+    cout << root->data << " ";
     preOrder(root->left);
     preOrder(root->right);
 }
 
-void postOrder(node* root)
+void postOrder(node *root)
 {
-    if(root==NULL)
+    if (root == NULL)
     {
         return;
     }
 
     postOrder(root->left);
     postOrder(root->right);
-    cout<<root->data<<" ";
+    cout << root->data << " ";
+}
+
+void buildFromLevelOrder(node *&root)
+{
+    queue<node *> q;
+    cout << "Enter root data";
+    int data;
+    cin >> data;
+    root = new node(data);
+    q.push(root);
+
+    while (!q.empty())
+    {
+
+        node *temp = q.front();
+        q.pop();
+
+        cout << "Enter leftroot data of "<<temp->data<<" ";
+        int leftdata;
+        cin >> leftdata;
+
+        if (leftdata != -1)
+        {
+            temp->left = new node(leftdata);
+            q.push(temp->left);
+        }
+
+        cout << "Enter rightroot data of "<<temp->data<<" ";
+        int rightdata;
+        cin >> rightdata;
+
+        if (rightdata != -1)
+        {
+            temp->right = new node(rightdata);
+            q.push(temp->right);
+        }
+    }
 }
 
 int main()
 {
     node *root = NULL;
-    root = buildTree(root);
-    cout<<endl<<endl;
-    cout << "Print the level order traversal output : "<<endl;
+    //root = buildTree(root);
+    buildFromLevelOrder(root);
+    cout << endl<< endl;
+    cout << "Print the level order traversal output : " << endl;
     levelOrderTraversal(root);
 
-    cout << "\nPrint the Inorder traversal output : "<<endl;
+    cout << "\nPrint the Inorder traversal output : " << endl;
     inOrder(root);
 
-    cout << "\nPrint the Preorder traversal output : "<<endl;
+    cout << "\nPrint the Preorder traversal output : " << endl;
     preOrder(root);
 
-    cout << "\nPrint the Posttraversal output : "<<endl;
+    cout << "\nPrint the Posttraversal output : " << endl;
     postOrder(root);
 
     return 0;
