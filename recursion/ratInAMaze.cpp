@@ -82,7 +82,7 @@ int main()
     int x = 0;
     int y = 0;
 
-    vector<vector<int>> v = m;
+    vector< vector<int> > v = m;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
