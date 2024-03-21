@@ -24,19 +24,40 @@ public:
         }
     }
 
-    void dfs(int node,unordered_map<int,bool>&visited,stack<int>&s)
+    void dfs(int node, unordered_map<int, bool> &visited, stack<int> &s)
     {
-        visited[node]=1;
-        for(auto i : adj[node])
+        visited[node] = 1;
+        for (auto i : adj[node])
         {
-            if(!visited[i.first])
+            if (!visited[i.first])
             {
-                dfs(i.first,visited,s);
+                dfs(i.first, visited, s);
+            }
+        }
+        s.push(node);
+    }
+
+    void getShortestPath(int src, vector<int> &distance, stack<int> &s)
+    {
+        
+        while (!s.empty())
+        {
+            
+            int top = s.top();
+            s.pop();
+            if (distance[top] != INT_MAX)
+            {
+
+                for (auto i : adj[top])
+                {
+                    if (distance[top] + i.second < distance[i.first])
+                    {
+                        distance[i.first] = distance[top] + i.second;
+                    }
+                }
             }
         }
     }
-
-    void getShortestPath()
 };
 
 int main()
@@ -55,31 +76,32 @@ int main()
     g.printAdj();
 
     int n = 6;
-    unordered_map<int,bool>visited;
-    stack<int>s;
+    unordered_map<int, bool> visited;
+    stack<int> s;
 
     for (int i = 0; i < n; i++)
     {
-        if(!visited[i])
+        if (!visited[i])
         {
-            g.dfs(i,visited,s);
+            g.dfs(i, visited, s);
         }
     }
 
-    int src=1;
-    vector<int>dist(n);
-    for(int i=0;i<n;i++)
+    int src = 1;
+    vector<int> dist(n);
+    for (int i = 0; i < n; i++)
     {
-        dist[i]=INT_MAX;
+        dist[i] = INT_MAX;
     }
 
-    dist[src]=0;
-    while(!s.empty())
-    {
-        int top=s.top();
-        s.pop();
+    dist[src] = 0;
 
-        for(auto i:)
+    g.getShortestPath(src, dist, s);
+    cout << "Answer is: " << endl;
+    for (int i = 0; i < dist.size(); i++)
+    {
+        cout << dist[i] << " ";
     }
+
     return 0;
 }
