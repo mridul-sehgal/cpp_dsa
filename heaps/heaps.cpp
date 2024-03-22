@@ -149,7 +149,7 @@ int main()
         cout << arr[i] << " ";
     }
 
-    // for min heap and max heap in a code pro=iority queue can also be used;
+    // for min heap and max heap in a code priority queue can also be used;
 
     // for max heap :- priority queue is by default max heap
 
