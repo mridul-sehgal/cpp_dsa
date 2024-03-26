@@ -45,3 +45,17 @@
 //     }
 //     return dist;
 // }
+
+// ************code line 26***********
+
+    // 1) st.begin() - This returns an iterator pointing to the first element in the set st.
+
+    // 2) *(st.begin()) - Dereferences the iterator, giving you the value it points to. 
+    //                     Since st is a set of pairs (set<pair<int,int>>), dereferencing it gives you the first pair in the set.
+    // 3)auto top - Using auto here means that the type of top will be automatically deduced by the compiler 
+    //             to match the type of the first element in the set.
+
+
+
+// moreover in a set the pairs are stored in ascending order based on their first elements. 
+// For pairs with the same first element, the order is determined by the second element.
