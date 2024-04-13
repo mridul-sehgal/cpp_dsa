@@ -34,7 +34,7 @@ void insertAtHead(int data, Node *&head)
     head = temp;
 }
 
-// // inserting a new node in the linkd list at the given position
+// // inserting a new node in the linkd list at the given position 
 void insertAtPosition(int posi, int data, Node *&head, Node *&tail)
 {
 
@@ -88,6 +88,30 @@ void deleteNode(int position, Node *&head)
     }
 }
 
+void deleteByValue(int value,Node*&head)
+{
+    if(head->data==value)
+    {
+        Node*temp=head;
+        head=head->next;
+        temp->next=NULL;
+        delete temp;
+    }
+
+    else{
+        Node* curr=head;
+        Node* prev=NULL;
+        while(curr->next!=NULL && curr->data!=value)
+        {
+            prev = curr;
+            curr = curr->next;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+}
+
 // printing the linked list
 void print(Node *head)
 {
@@ -105,8 +129,7 @@ int main()
     // cout << node1->next;
 
     Node *head = node1;
-    Node *tail = node1;
-
+    Node *tail = node1;  
     insertAtHead(8, head);
     insertAtHead(6, head);
     cout << "Insertion at head"<<endl;
@@ -124,7 +147,11 @@ int main()
 
     deleteNode(3, head);
     cout << endl<< "Deletion"<<endl;
-
     print(head);
+
+    deleteByValue(14,head);
+    cout << endl<< "Deletion"<<endl;
+    print(head);
+
     return 0;
 }
