@@ -28,9 +28,11 @@
 //     return ans;
 // }
 
-// ************ TOP DOWN APPROACH ************
-// #include <bits/stdc++.h>
 
+// ************ TOP DOWN APPROACH ************
+
+
+// #include <bits/stdc++.h>
 // int solve(vector<int> &nums, int i, vector<int> &dp)
 // {
 //     if (i < 0)
@@ -90,5 +92,32 @@
 // {
 //     int n = nums.size();
 //     int ans = solve(nums, n);
+//     return ans;
+// }
+
+// ************ SPACE OPTIMISATION **********
+
+// #include <bits/stdc++.h>
+
+// int solve(vector<int>&nums,int n)
+// {
+//    int prev1=nums[0];
+//    int prev2=0;
+
+//     for(int i=1;i<n;i++ )
+//     {
+//         int include=nums[i]+prev2;
+//         int exclude=prev1;
+//         int ans=max(include,exclude);
+//         prev2=prev1;
+//         prev1=ans;
+//     }
+//     return prev1;
+
+// }
+
+// int maximumNonAdjacentSum(vector<int> &nums){
+//     int n=nums.size();
+//     int ans=solve(nums,n);
 //     return ans;
 // }
