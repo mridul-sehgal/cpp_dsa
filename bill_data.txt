@@ -1,0 +1,8 @@
+g
+Entry Time: 2024-04-24 21:29:53
+Name: Mridul     | Total Expenses: $  200.00
+Name: Vishesh    | Total Expenses: $  200.00
+
+Entry Time: 2024-04-24 21:31:20
+Name: Mridul     | Total Expenses: $  350.00
+Name: Vishesh    | Total Expenses: $  200.00
